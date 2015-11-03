@@ -19,7 +19,9 @@ public class CalculatorTest {
         private Calculator sut;
 
         @DataPoints
-        public static final Fixture[] PARAMS = { new Fixture(10L, 5L, 2L), new Fixture(10L, 3L, 3L) };
+        public static final Fixture[] PARAMS = { new Fixture(10L, 5L, 2L),
+                                                 new Fixture(10L, 3L, 3L),
+                                                 new Fixture(0L, 1L, 0L) };
 
         @Before
         public void setUp() throws Exception {
@@ -27,8 +29,8 @@ public class CalculatorTest {
         }
 
         @Theory
-        public void devideは小数点以下を切り捨てて商を返す(Fixture param) throws Exception {
-            Long actual = sut.devide(param.val1, param.val2);
+        public void divideは小数点以下を切り捨てて商を返す(Fixture param) throws Exception {
+            Long actual = sut.divide(param.val1, param.val2);
             Long expected = param.expected;
             String msg = "when val1 = " + param.val1 + ", val2 = " + param.val2;
             assertThat(msg, actual, is(expected));
@@ -50,10 +52,10 @@ public class CalculatorTest {
         }
 
         @Theory
-        public void devideはnullを渡すか0で除算すると例外を返す(Long[] param) throws Exception {
+        public void divideはnullを渡すか0で除算すると例外を返す(Long[] param) throws Exception {
             expectedException.expect(IllegalArgumentException.class);
-            expectedException.expectMessage("null or devide by zero.");
-            sut.devide(param[0], param[1]);
+            expectedException.expectMessage("null or divide by zero.");
+            sut.divide(param[0], param[1]);
         }
     }
 
