@@ -1,4 +1,4 @@
-package exercise2;
+package exercise18_2;
 
 public class Calculator {
     public Long divide(Long val1, Long val2) {

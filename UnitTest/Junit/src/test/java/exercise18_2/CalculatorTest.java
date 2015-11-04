@@ -1,4 +1,4 @@
-package exercise2;
+package exercise18_2;
 
 import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.*;
@@ -11,6 +11,8 @@ import org.junit.experimental.theories.Theories;
 import org.junit.experimental.theories.Theory;
 import org.junit.rules.ExpectedException;
 import org.junit.runner.RunWith;
+
+import exercise18_2.Calculator;
 
 @RunWith(Enclosed.class)
 public class CalculatorTest {

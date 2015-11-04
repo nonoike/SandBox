@@ -1,6 +1,6 @@
-package exercise5;
+package exercise18_5;
 
-import static exercise5.ProductStockTestHelper.*;
+import static exercise18_5.ProductStockTestHelper.*;
 import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.*;
 
@@ -9,6 +9,9 @@ import java.util.Map;
 
 import org.junit.Before;
 import org.junit.Test;
+
+import exercise18_5.Product;
+import exercise18_5.ProductStock;
 
 public class ProductStockTest {
     private ProductStock sut;

@@ -1,4 +1,4 @@
-package exercise6;
+package exercise18_6;
 
 import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.*;
@@ -10,6 +10,8 @@ import java.util.concurrent.atomic.AtomicReference;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.Timeout;
+
+import exercise18_6.BackgroundTask;
 
 public class BackgroundTaskTest {
     private BackgroundTask sut;

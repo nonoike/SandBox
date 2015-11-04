@@ -1,4 +1,4 @@
-package exercise5;
+package exercise18_5;
 
 public class Product {
     public final String name;

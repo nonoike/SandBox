@@ -1,4 +1,4 @@
-package exercise6;
+package exercise18_6;
 
 import java.util.concurrent.Executors;
 

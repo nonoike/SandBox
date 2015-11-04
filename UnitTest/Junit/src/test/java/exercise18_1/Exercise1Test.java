@@ -1,4 +1,4 @@
-package exercise1;
+package exercise18_1;
 
 import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.*;
@@ -7,6 +7,8 @@ import org.junit.experimental.theories.DataPoints;
 import org.junit.experimental.theories.Theories;
 import org.junit.experimental.theories.Theory;
 import org.junit.runner.RunWith;
+
+import exercise18_1.Exercise1;
 
 @RunWith(Theories.class)
 public class Exercise1Test {

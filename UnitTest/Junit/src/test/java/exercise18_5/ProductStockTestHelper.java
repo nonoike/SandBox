@@ -1,4 +1,6 @@
-package exercise5;
+package exercise18_5;
+
+import exercise18_5.Product;
 
 public class ProductStockTestHelper {
 

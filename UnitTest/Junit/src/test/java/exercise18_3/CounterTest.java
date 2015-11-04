@@ -1,4 +1,4 @@
-package exercise3;
+package exercise18_3;
 
 import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.*;
@@ -7,6 +7,8 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.experimental.runners.Enclosed;
 import org.junit.runner.RunWith;
+
+import exercise18_3.Counter;
 
 @RunWith(Enclosed.class)
 public class CounterTest {

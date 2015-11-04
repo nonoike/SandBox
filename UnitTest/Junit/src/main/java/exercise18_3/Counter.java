@@ -1,4 +1,4 @@
-package exercise3;
+package exercise18_3;
 
 public class Counter {
     private int count;

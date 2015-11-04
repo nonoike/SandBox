@@ -1,4 +1,4 @@
-package exercise4;
+package exercise18_4;
 
 public class NumberUtils {
     public static boolean isEven(Long val) {
