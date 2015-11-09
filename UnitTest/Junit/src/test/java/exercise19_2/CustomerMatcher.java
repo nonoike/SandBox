@@ -56,7 +56,7 @@ public class CustomerMatcher extends BaseMatcher<Customer> {
 
     private boolean notEquals(Object expected, Object actual) {
         if (expected == null) {
-            return actual == null;
+            return actual != null;
         }
         return !expected.equals(actual);
     }
