@@ -29,12 +29,19 @@ binmode STDERR, ':encoding(cp932)';
 use constant {
     SAVE_UPFILE_DIR    => "/var/www/html/upload/upfile",
     CALL_EXECUTOR_PATH => "/var/www/html/upload/backup.sh",
+    LOG_DIR            => "/var/www/html/upload/log",
 };
-my $upfile_path = SAVE_UPFILE_DIR."/upfile.csv";  # デフォルト値、処理内で書き換え
+my ($upfile_path);
+my ($sec, $min, $hour, $mday, $mon, $year, $wday, $yday, $isdst) = localtime(time);
 
 # 実処理
+# print "Content-type: text/plain\n\n"; # デバッグ用
+print "Content-type: text/html\n\n";
 &save_upfile;
 &call_executor;
+
+
+my $url = &to_url(${upfile_path});
 
 # 終了
 print "Content-type:text/plain\n\n";
@@ -60,6 +67,27 @@ sub save_upfile {
 
 # バッチを起動するシェルを呼び出す
 sub call_executor {
-    my @cmd = (CALL_EXECUTOR_PATH, ${upfile_path});
-    system @cmd;
+    my $yyyymmdd = sprintf("%04d%02d%02d", ${year} + 1900, ${mon} + 1, ${mday});
+    my $log_path = LOG_DIR."/log_${yyyymmdd}.log";
+    my $cmd = qq|sh |.CALL_EXECUTOR_PATH.qq| "${upfile_path}" &>> ${log_path} &|;
+    my $result = `${cmd}`;
 }
+
+# パスをURL表記に変換
+sub to_url {
+    ($path) = @_;
+    my $regex = "/var/www/html";
+    my $replacement = "http://localhost:8080";
+    (my $url = ${path}) =~ s/${regex}/${replacement}/g;
+    # print ${url};
+    return ${url};
+}
+
+# ファイルのダウンロードサンプル
+# sub download_file {
+#     print "Content-Type: application/force-download\n";
+#     print qq|Content-Disposition: attachment; filename="|.basename(${download_path}).qq|"\n\n|;
+#     open(DLFILE, ${download_path}) or die "cannot open '$!'";
+#     print for <DLFILE>;
+#     close(DLFILE);
+# }
