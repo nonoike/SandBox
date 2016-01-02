@@ -13,4 +13,15 @@ public class Card {
     private final Suit suit;
     /** ランク */
     private final Rank rank;
+
+    /**
+     * コンストラクタ
+     *
+     * @param suit スート
+     * @param rank ランク
+     */
+    public Card(Suit suit, Rank rank) {
+        this.suit = suit;
+        this.rank = rank;
+    }
 }
